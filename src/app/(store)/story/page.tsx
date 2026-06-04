@@ -4,47 +4,75 @@ import { motion } from "framer-motion";
 
 export default function StoryPage() {
   return (
-    <div className="bg-background min-h-screen py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h1 className="font-heading font-bold text-4xl md:text-5xl text-foreground mb-6">Our Story</h1>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8" />
-          <p className="text-lg text-foreground/80 leading-relaxed">
-            Every great journey begins with a simple thought. For RadhaRoop Dairy, it was the desire to bring back the authentic taste and purity of Deshi Ghee that we remembered from our childhood in the village.
-          </p>
-        </motion.div>
+    <div className="bg-background pt-24 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Hero Section */}
+        <div className="text-center mb-20">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-heading font-bold text-5xl md:text-6xl text-foreground mb-6"
+          >
+            Our Story
+          </motion.h1>
+          <div className="w-24 h-1 bg-[#D4AF37] mx-auto rounded-full mb-8" />
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed"
+          >
+            A journey from the heart of rural India to your dining table, preserving the sacred tradition of Bilona Ghee.
+          </motion.p>
+        </div>
 
-        {/* Timeline placeholder */}
-        <div className="space-y-12">
-          {[
-            { year: "Our Roots", title: "The Village Beginning", desc: "Starting with just a few indigenous cows and a commitment to traditional practices." },
-            { year: "The Process", title: "Reviving Bilona", desc: "We chose the harder path - the ancient Vedic Bilona method, ensuring maximum nutrition." },
-            { year: "Today", title: "To Your Home", desc: "Delivering unadulterated purity to families across the country while empowering our village community." }
-          ].map((item, idx) => (
+        {/* Founder Section */}
+        <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-lg border border-border/50 mb-24 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FDFBF7] rounded-bl-full -z-10" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div 
-              key={idx}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex gap-6 items-start"
+              className="relative flex justify-center"
             >
-              <div className="w-32 flex-shrink-0 text-right pt-1">
-                <span className="font-bold text-primary font-heading text-xl">{item.year}</span>
+              {/* Note: Update this image source to the actual founder image (e.g., /founder.png) */}
+              <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Founder of RadhaRoop Dairy" 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="w-4 h-4 rounded-full bg-primary mt-2 flex-shrink-0 relative">
-                <div className="absolute top-4 left-1/2 -ml-0.5 w-1 h-24 bg-border/50" />
-              </div>
-              <div className="pb-8">
-                <h3 className="text-2xl font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-foreground/70">{item.desc}</p>
+              <div className="absolute -bottom-6 -right-6 bg-[#0A3622] text-[#D4AF37] p-6 rounded-2xl shadow-xl">
+                <h3 className="font-heading font-bold text-xl">Founder</h3>
+                <p className="text-sm opacity-90">RadhaRoop Dairy</p>
               </div>
             </motion.div>
-          ))}
+
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="font-heading font-bold text-4xl text-foreground">The Vision Behind <br/>The Purity</h2>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                "Our mission started with a simple realization: the ghee we consume today lacks the vitality and purity of the ghee our grandparents used to make. We wanted to bring back the authentic, golden elixir of health."
+              </p>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                By empowering local village communities and adhering strictly to the ancient Vedic Bilona method, we ensure that every jar of RadhaRoop Dairy Ghee is not just a product, but a piece of our heritage.
+              </p>
+              <div className="pt-4 border-t border-border mt-8">
+                <p className="font-bold text-xl text-foreground">Creating a healthier tomorrow,</p>
+                <p className="text-foreground/60">One spoonful at a time.</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
+
       </div>
     </div>
   );

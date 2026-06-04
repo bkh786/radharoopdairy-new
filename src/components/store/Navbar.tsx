@@ -1,18 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ShoppingBag } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -22,89 +21,85 @@ export function Navbar() {
     { name: "Home", href: "/" },
     { name: "Shop", href: "/shop" },
     { name: "Our Story", href: "/story" },
-    { name: "Process", href: "/process" },
+    { name: "Founder", href: "/founder" },
     { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
+    <nav 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-background/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="font-heading font-bold text-2xl tracking-wider text-primary">
-              RadhaRoop Dairy
-            </Link>
-          </div>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <span className="font-heading font-bold text-2xl tracking-tight text-foreground">
+              RadhaRoop <span className="text-primary italic">Dairy</span>
+            </span>
+          </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8 items-center">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
+              <Link 
+                key={link.name} 
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary font-semibold" : "text-foreground/80"
-                }`}
+                className="text-foreground/80 hover:text-primary font-medium transition-colors"
               >
                 {link.name}
               </Link>
             ))}
-            <Link
-              href="/shop"
-              className="bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors flex items-center gap-2 shadow-sm"
+            <Link 
+              href="/shop" 
+              className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold hover:bg-primary/90 transition-transform hover:scale-105 shadow-sm"
             >
-              <ShoppingBag size={16} />
-              Shop Now
+              Order Now
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground hover:text-primary p-2 focus:outline-none"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b border-border shadow-lg">
-          <div className="px-4 pt-2 pb-6 space-y-1 flex flex-col">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-3 rounded-md text-base font-medium ${
-                  pathname === link.href
-                    ? "text-primary bg-primary/10"
-                    : "text-foreground/80 hover:text-primary hover:bg-primary/5"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="pt-4 px-3">
-              <Link
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 w-full bg-background border-t border-border shadow-lg md:hidden"
+          >
+            <div className="flex flex-col px-4 pt-2 pb-6 space-y-4">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-foreground/80 hover:text-primary font-medium text-lg py-2 border-b border-border/50"
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Link 
                 href="/shop"
-                onClick={() => setIsOpen(false)}
-                className="w-full bg-primary text-primary-foreground px-5 py-3 rounded-full text-base font-medium hover:bg-primary/90 transition-colors flex justify-center items-center gap-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-primary text-primary-foreground text-center px-6 py-3 rounded-full font-bold mt-4"
               >
-                <ShoppingBag size={18} />
-                Explore Products
+                Order Now
               </Link>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

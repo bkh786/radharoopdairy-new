@@ -45,100 +45,39 @@
 }
 
 :root {
-  /* Warm Ivory / Cream Background */
-  --background: oklch(0.985 0.01 85);
-  /* Dark Espresso Foreground */
+  /* Warm Off-White / Natural Paper Background (#FDFBF7) */
+  --background: oklch(0.985 0.005 85);
+  /* Deep Espresso Foreground */
   --foreground: oklch(0.25 0.02 50);
   
-  --card: oklch(0.99 0.005 85);
+  --card: oklch(1 0 0);
   --card-foreground: oklch(0.25 0.02 50);
   
-  --popover: oklch(0.99 0.005 85);
+  --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.25 0.02 50);
   
-  /* Primary: Muted Gold / Earthy Ochre */
-  --primary: oklch(0.6 0.12 70);
-  --primary-foreground: oklch(0.985 0.01 85);
+  /* Primary: Deep Earthy Gold */
+  --primary: oklch(0.65 0.15 75);
+  --primary-foreground: oklch(1 0 0);
   
-  /* Secondary: Soft Sage Green */
-  --secondary: oklch(0.85 0.04 150);
+  /* Secondary: Soft Pastel Accent */
+  --secondary: oklch(0.9 0.05 80);
   --secondary-foreground: oklch(0.25 0.02 50);
   
-  --muted: oklch(0.93 0.015 85);
+  --muted: oklch(0.95 0.01 85);
   --muted-foreground: oklch(0.5 0.02 50);
   
-  --accent: oklch(0.93 0.015 85);
+  --accent: oklch(0.95 0.01 85);
   --accent-foreground: oklch(0.25 0.02 50);
   
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0.01 85);
+  --destructive-foreground: oklch(1 0 0);
   
-  --border: oklch(0.88 0.02 85);
-  --input: oklch(0.88 0.02 85);
-  --ring: oklch(0.6 0.12 70);
+  --border: oklch(0.9 0.02 85);
+  --input: oklch(0.9 0.02 85);
+  --ring: oklch(0.65 0.15 75);
   
-  --chart-1: oklch(0.6 0.12 70);
-  --chart-2: oklch(0.85 0.04 150);
-  --chart-3: oklch(0.4 0.05 50);
-  --chart-4: oklch(0.7 0.08 80);
-  --chart-5: oklch(0.5 0.05 100);
-  
-  --radius: 0.75rem;
-  
-  --sidebar: oklch(0.985 0.01 85);
-  --sidebar-foreground: oklch(0.25 0.02 50);
-  --sidebar-primary: oklch(0.6 0.12 70);
-  --sidebar-primary-foreground: oklch(0.985 0.01 85);
-  --sidebar-accent: oklch(0.93 0.015 85);
-  --sidebar-accent-foreground: oklch(0.25 0.02 50);
-  --sidebar-border: oklch(0.88 0.02 85);
-  --sidebar-ring: oklch(0.6 0.12 70);
-}
-
-.dark {
-  /* Deep Brown / Forest Black Background */
-  --background: oklch(0.2 0.01 50);
-  --foreground: oklch(0.95 0.01 85);
-  
-  --card: oklch(0.25 0.01 50);
-  --card-foreground: oklch(0.95 0.01 85);
-  
-  --popover: oklch(0.25 0.01 50);
-  --popover-foreground: oklch(0.95 0.01 85);
-  
-  --primary: oklch(0.65 0.12 70);
-  --primary-foreground: oklch(0.2 0.01 50);
-  
-  --secondary: oklch(0.35 0.04 150);
-  --secondary-foreground: oklch(0.95 0.01 85);
-  
-  --muted: oklch(0.3 0.01 50);
-  --muted-foreground: oklch(0.7 0.02 85);
-  
-  --accent: oklch(0.3 0.01 50);
-  --accent-foreground: oklch(0.95 0.01 85);
-  
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.95 0.01 85);
-  
-  --border: oklch(0.3 0.01 50);
-  --input: oklch(0.3 0.01 50);
-  --ring: oklch(0.65 0.12 70);
-  
-  --chart-1: oklch(0.65 0.12 70);
-  --chart-2: oklch(0.35 0.04 150);
-  --chart-3: oklch(0.8 0.05 50);
-  --chart-4: oklch(0.5 0.08 80);
-  --chart-5: oklch(0.7 0.05 100);
-  
-  --sidebar: oklch(0.2 0.01 50);
-  --sidebar-foreground: oklch(0.95 0.01 85);
-  --sidebar-primary: oklch(0.65 0.12 70);
-  --sidebar-primary-foreground: oklch(0.2 0.01 50);
-  --sidebar-accent: oklch(0.3 0.01 50);
-  --sidebar-accent-foreground: oklch(0.95 0.01 85);
-  --sidebar-border: oklch(0.3 0.01 50);
-  --sidebar-ring: oklch(0.65 0.12 70);
+  --radius: 1rem;
 }
 
 @layer base {
@@ -147,8 +86,18 @@
   }
   body {
     @apply bg-background text-foreground selection:bg-primary/20 selection:text-primary;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
   }
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* Custom Scrollbar for Categories */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
