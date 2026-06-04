@@ -37,7 +37,7 @@ export const MOCK_PRODUCTS = [
     mrp: 899,
     price: 749,
     status: "Not Available",
-    image: "/jar_mat.png",
+    image: "/jar_spoon.png",
     highlights: ["Traditional Churning", "Rich Texture"],
     shelfLife: "12 Months"
   }

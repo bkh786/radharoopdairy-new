@@ -44,7 +44,7 @@ export default function HomePage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            className="absolute inset-0 w-full h-full object-contain bg-[#D4AF37]/10 z-0 p-4 md:p-12"
             alt="Pure Deshi Ghee"
           />
         </AnimatePresence>
@@ -111,6 +111,7 @@ export default function HomePage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-60"
             src="/ghee_process.mp4"
+            ref={(el) => { if (el) el.playbackRate = 0.25; }}
           />
           <div className="absolute inset-0 bg-black/30 z-10" />
           <div className="relative z-20 text-center px-4">

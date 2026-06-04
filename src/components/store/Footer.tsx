@@ -10,8 +10,8 @@ export function Footer() {
         className="absolute inset-0 z-0 opacity-40 mix-blend-screen pointer-events-none" 
         style={{ 
           backgroundImage: "url('/footer_bg.png')", 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'bottom center',
+          backgroundSize: '100% auto', 
+          backgroundPosition: 'top center',
           backgroundRepeat: 'repeat-x'
         }} 
       />

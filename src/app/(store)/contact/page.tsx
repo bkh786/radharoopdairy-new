@@ -11,7 +11,7 @@ export default function ContactPage() {
     email: "",
     state: "",
     city: "",
-    distributionType: "Retail",
+    distributionType: "Retailer",
     message: ""
   });
 
@@ -20,17 +20,20 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleWhatsApp = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.name || !formData.contact || !formData.email || !formData.state || !formData.city || !formData.message) {
+      alert("Please fill all mandatory fields");
+      return;
+    }
+    
+    // TODO: Push to Google Sheets API here
+    // await fetch('/api/sheets', { method: 'POST', body: JSON.stringify(formData) });
+    
+    // Then navigate to WhatsApp
     const text = `New Website Enquiry\n\nDistribution Type: ${formData.distributionType}\n\nName: ${formData.name}\nContact: ${formData.contact}\nEmail: ${formData.email}\nState: ${formData.state}\nCity: ${formData.city}\n\nMessage:\n${formData.message}`;
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/919616717512?text=${encodedText}`, "_blank");
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // This will be connected to Google Sheets API later
-    alert("Form submitted successfully! (Google Sheets integration pending)");
   };
 
   return (
@@ -74,10 +77,9 @@ export default function ContactPage() {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground/80">Distribution Type</label>
                 <select name="distributionType" value={formData.distributionType} onChange={handleChange} className="w-full bg-background border border-border px-4 py-3 rounded-xl focus:outline-none focus:border-primary transition-colors">
-                  <option value="Retail">Retail Customer</option>
-                  <option value="Wholesale">Wholesale / Bulk</option>
-                  <option value="Distributor">Distributorship</option>
-                  <option value="Other">Other Enquiry</option>
+                  <option value="Retailer">Retailer</option>
+                  <option value="Distributor">Distributor</option>
+                  <option value="Wholesale/Bulk">Wholesale/Bulk</option>
                 </select>
               </div>
             </div>
@@ -99,12 +101,9 @@ export default function ContactPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button type="submit" className="flex-1 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 shadow-md">
-                <Send size={18} /> Submit Enquiry
-              </button>
-              <button type="button" onClick={handleWhatsApp} className="flex-1 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#20b858] transition-colors flex items-center justify-center gap-3 shadow-md group">
+              <button type="submit" className="flex-1 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#20b858] transition-colors flex items-center justify-center gap-3 shadow-md group">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="w-5 h-5 filter brightness-0 invert" />
-                Send via WhatsApp
+                Submit & Send via WhatsApp
               </button>
             </div>
           </form>
