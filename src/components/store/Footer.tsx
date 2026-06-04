@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Facebook, Instagram, Youtube, Linkedin, MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
+import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 export function Footer() {
   return (
@@ -14,10 +15,10 @@ export function Footer() {
               Pure Deshi Ghee crafted the traditional way. Rooted in village traditions, delivered with purity to your home. No preservatives, 100% natural.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-background/80 hover:text-primary transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="text-background/80 hover:text-primary transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="text-background/80 hover:text-primary transition-colors"><Youtube size={20} /></a>
-              <a href="#" className="text-background/80 hover:text-primary transition-colors"><Linkedin size={20} /></a>
+              <a href="#" className="text-background/80 hover:text-primary transition-colors"><FaFacebook size={20} /></a>
+              <a href="#" className="text-background/80 hover:text-primary transition-colors"><FaInstagram size={20} /></a>
+              <a href="#" className="text-background/80 hover:text-primary transition-colors"><FaYoutube size={20} /></a>
+              <a href="#" className="text-background/80 hover:text-primary transition-colors"><FaLinkedin size={20} /></a>
             </div>
           </div>
 
