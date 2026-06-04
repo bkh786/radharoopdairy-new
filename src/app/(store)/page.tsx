@@ -7,9 +7,9 @@ import { useState, useEffect } from "react";
 import { MOCK_PRODUCTS } from "@/lib/constants";
 
 const carouselImages = [
+  "/deshi_ghee.png",
   "/jar.png",
   "/jar_bowl.png",
-  "/jar_mat.png",
   "/jar_spoon.png",
   "/pure_traditional.png",
   "/rich_aroma.png",
@@ -20,12 +20,11 @@ export default function HomePage() {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if (isHovered) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
     }, 4000);
     return () => clearInterval(timer);
-  }, [isHovered]);
+  }, []);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev === carouselImages.length - 1 ? 0 : prev + 1));
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
@@ -36,8 +35,6 @@ export default function HomePage() {
       {/* 1. Hero Product Carousel */}
       <section 
         className="relative w-full h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <AnimatePresence initial={false}>
           <motion.img
@@ -231,8 +228,8 @@ export default function HomePage() {
                 "Our journey started with a simple belief: everyone deserves the authentic, golden elixir that our grandparents used to make. We refuse to compromise on tradition, ensuring every jar is crafted with integrity, supporting rural ecosystems while bringing health to your dining table."
               </p>
               <div className="pt-8">
-                <Link href="/story" className="inline-block border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-3 rounded-full font-bold hover:bg-[#D4AF37] hover:text-[#0A3622] transition-colors">
-                  Read Our Full Story
+                <Link href="/founder" className="inline-block border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-3 rounded-full font-bold hover:bg-[#D4AF37] hover:text-[#0A3622] transition-colors">
+                  Meet Our Founder
                 </Link>
               </div>
             </div>

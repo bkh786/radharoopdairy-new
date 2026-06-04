@@ -25,7 +25,7 @@ export default function FounderPage() {
             <div className="md:w-2/5 bg-primary/10 relative min-h-[400px]">
               {/* Founder Image Placeholder */}
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="/founder_page.png" 
                 alt="Founder" 
                 className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80"
               />
@@ -46,7 +46,7 @@ export default function FounderPage() {
               </div>
 
               <div className="mt-10 pt-8 border-t border-border/50">
-                <div className="font-heading text-2xl font-bold text-primary mb-1">Founder Name</div>
+                <div className="font-heading text-2xl font-bold text-primary mb-1">Kunwar Abdhendra Gangwar</div>
                 <div className="text-sm text-foreground/60 uppercase tracking-widest">Founder, RadhaRoop Dairy</div>
               </div>
             </div>

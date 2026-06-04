@@ -7,12 +7,15 @@ export function Footer() {
     <footer className="relative bg-[#0A3622] text-[#E8F2EE] pt-20 pb-10 overflow-hidden">
       {/* Decorative Village Pattern Background overlay */}
       <div 
-        className="absolute inset-0 opacity-5 pointer-events-none"
-        style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5C35 5 40 10 40 15C40 20 35 25 30 25C25 25 20 20 20 15C20 10 25 5 30 5ZM30 10C27.2 10 25 12.2 25 15C25 17.8 27.2 20 30 20C32.8 20 35 17.8 35 15C35 12.2 32.8 10 30 10ZM30 35C40 35 50 40 50 50V55H10V50C10 40 20 35 30 35ZM30 40C22.5 40 15.6 43.8 15.1 49.9L15 50H45L44.9 49.9C44.4 43.8 37.5 40 30 40Z' fill='%23FFFFFF' fill-rule='evenodd'/%3E%3C/svg%3E\")",
-          backgroundSize: "60px 60px"
-        }}
+        className="absolute inset-0 z-0 opacity-40 mix-blend-screen pointer-events-none" 
+        style={{ 
+          backgroundImage: "url('/footer_bg.png')", 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'bottom center',
+          backgroundRepeat: 'repeat-x'
+        }} 
       />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#024E43] via-[#024E43]/80 to-transparent z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -55,9 +58,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6 tracking-wider uppercase text-sm">Quick Links</h4>
             <ul className="space-y-4">
-              <li><Link href="/shop" className="text-[#E8F2EE]/80 hover:text-[#D4AF37] transition-colors text-sm">Shop Products</Link></li>
-              <li><Link href="/story" className="text-[#E8F2EE]/80 hover:text-[#D4AF37] transition-colors text-sm">Our Story</Link></li>
-              <li><Link href="/founder" className="text-[#E8F2EE]/80 hover:text-[#D4AF37] transition-colors text-sm">Founder's Message</Link></li>
+              <li><Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link></li>
+              <li><Link href="/shop" className="hover:text-[#D4AF37] transition-colors">Shop All</Link></li>
+              <li><Link href="/founder" className="hover:text-[#D4AF37] transition-colors">Our Founder</Link></li>
+              <li><Link href="/contact" className="hover:text-[#D4AF37] transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
