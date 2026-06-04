@@ -52,6 +52,14 @@ export function Navbar() {
               </Link>
             ))}
             <Link 
+              href="https://wa.me/919616717512" 
+              target="_blank"
+              className="flex items-center gap-2 bg-transparent border-2 border-[#25D366] text-[#25D366] px-5 py-2 rounded-full font-bold hover:bg-[#25D366] hover:text-white transition-all shadow-sm"
+            >
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="w-5 h-5 filter invert-0 brightness-100" />
+              Chat
+            </Link>
+            <Link 
               href="/shop" 
               className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold hover:bg-primary/90 transition-transform hover:scale-105 shadow-sm"
             >

@@ -85,6 +85,10 @@ export function Footer() {
                 <span>+91 9616717512</span>
               </li>
               <li className="flex items-center gap-3 text-[#E8F2EE]/80 text-sm">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="w-[18px] h-[18px] flex-shrink-0 filter invert-0 brightness-200" style={{ filter: 'brightness(0) saturate(100%) invert(88%) sepia(31%) saturate(735%) hue-rotate(345deg) brightness(92%) contrast(85%)' }} />
+                <a href="https://wa.me/919616717512" target="_blank" rel="noopener noreferrer" className="hover:text-[#D4AF37] transition-colors">Chat on WhatsApp</a>
+              </li>
+              <li className="flex items-center gap-3 text-[#E8F2EE]/80 text-sm">
                 <Mail className="text-[#D4AF37] flex-shrink-0" size={18} />
                 <span>hello@radharoopdairy.com</span>
               </li>

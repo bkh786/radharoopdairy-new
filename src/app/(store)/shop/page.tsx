@@ -2,45 +2,10 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MessageCircle, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-// Mock Data (will be replaced by Google Sheets API)
-const MOCK_PRODUCTS = [
-  {
-    sku: "A2-GHEE-500",
-    name: "Pure A2 Cow Deshi Ghee",
-    category: "Ghee",
-    usp: "Bilona Method, A2 Milk",
-    mrp: 1499,
-    price: 1199,
-    status: "Available",
-    image: "https://images.unsplash.com/photo-1602484661845-a7b68239021e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["No Preservatives", "Lab Tested", "Farm Fresh"],
-  },
-  {
-    sku: "A2-GHEE-1000",
-    name: "Pure A2 Cow Deshi Ghee (1L)",
-    category: "Ghee",
-    usp: "Family Pack",
-    mrp: 2899,
-    price: 2299,
-    status: "Available",
-    image: "https://images.unsplash.com/photo-1602484661845-a7b68239021e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["No Preservatives", "Lab Tested", "Value Pack"],
-  },
-  {
-    sku: "BUFFALO-GHEE-500",
-    name: "Premium Buffalo Ghee",
-    category: "Ghee",
-    usp: "Rich Aroma & Taste",
-    mrp: 899,
-    price: 749,
-    status: "Not Available",
-    image: "https://images.unsplash.com/photo-1602484661845-a7b68239021e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    highlights: ["Traditional Churning", "Rich Texture"],
-  }
-];
+import { MOCK_PRODUCTS } from "@/lib/constants";
 
 export default function ShopPage() {
   const [filter, setFilter] = useState("All");
@@ -60,7 +25,7 @@ export default function ShopPage() {
             animate={{ opacity: 1, y: 0 }}
             className="font-heading font-bold text-4xl md:text-5xl text-foreground mb-4"
           >
-            Our Pure Products
+            Our Pure Ghee
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -68,28 +33,12 @@ export default function ShopPage() {
             transition={{ delay: 0.1 }}
             className="text-foreground/70 max-w-2xl mx-auto text-lg"
           >
-            Authentic, traditional, and crafted with love. Browse our collection of pure village products.
+            Authentic, traditional, and crafted with love. Browse our collection of pure Deshi Ghee.
           </motion.p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        {/* Filters */}
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                filter === cat 
-                  ? "bg-primary text-primary-foreground shadow-md" 
-                  : "bg-background border border-border text-foreground hover:border-primary"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
 
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -157,9 +106,9 @@ export default function ShopPage() {
                       href={`https://wa.me/919616717512?text=Hello,%20I%20want%20to%20enquire%20about%20${encodeURIComponent(product.name)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 rounded-xl border border-[#25D366] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors"
+                      className="w-12 h-12 rounded-xl border border-[#25D366] text-[#25D366] flex items-center justify-center hover:bg-[#25D366] transition-colors group/wa"
                     >
-                      <MessageCircle size={20} />
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="w-6 h-6 filter invert-0 brightness-100 group-hover/wa:brightness-0 group-hover/wa:invert" />
                     </a>
                   </div>
                 </div>

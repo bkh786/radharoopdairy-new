@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Send, MessageCircle } from "lucide-react";
+import { Send } from "lucide-react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -102,8 +102,9 @@ export default function ContactPage() {
               <button type="submit" className="flex-1 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 shadow-md">
                 <Send size={18} /> Submit Enquiry
               </button>
-              <button type="button" onClick={handleWhatsApp} className="flex-1 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#20b858] transition-colors flex items-center justify-center gap-2 shadow-md">
-                <MessageCircle size={18} /> Send via WhatsApp
+              <button type="button" onClick={handleWhatsApp} className="flex-1 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#20b858] transition-colors flex items-center justify-center gap-3 shadow-md group">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="w-5 h-5 filter brightness-0 invert" />
+                Send via WhatsApp
               </button>
             </div>
           </form>
