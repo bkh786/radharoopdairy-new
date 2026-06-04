@@ -111,14 +111,14 @@ export default function HomePage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover opacity-60"
             src="/ghee_process.mp4"
-            ref={(el) => { if (el) el.playbackRate = 0.25; }}
+            ref={(el) => { if (el) el.playbackRate = 0.5; }}
           />
-          <div className="absolute inset-0 bg-black/30 z-10" />
-          <div className="relative z-20 text-center px-4">
-            <h2 className="font-heading font-extrabold text-4xl md:text-6xl text-white mb-4 drop-shadow-xl">
+          <div className="absolute inset-0 bg-black/10 z-10" />
+          <div className="relative z-20 text-center px-4 mix-blend-overlay">
+            <h2 className="font-heading font-extrabold text-4xl md:text-6xl text-white/50 mb-4 drop-shadow-sm">
               The Traditional Journey of Pure Deshi Ghee
             </h2>
-            <p className="text-lg md:text-2xl text-[#E8F2EE] max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-lg md:text-2xl text-white/50 max-w-3xl mx-auto drop-shadow-sm">
               Prepared through time-honored methods that preserve aroma, texture, nutrition, and authenticity.
             </p>
           </div>
